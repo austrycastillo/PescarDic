@@ -1,0 +1,11 @@
+crear un sistema simple para un club de playa
+dos clases
+- playa - turista 
+Playa
+nombre
+ubicación
+
+Turista
+nombre
+edad
+status
