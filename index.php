@@ -77,18 +77,119 @@
 // echo $b->getNombre();
 
 //PRACTICA PLAYA
-include_once("Playa.php");
-include_once("Turista.php");
-$playa1 = new Playa("Ipanema","Brasil");
-$playa1->informar();
+// include_once("Playa.php");
+// include_once("Turista.php");
+// $playa1 = new Playa("Ipanema","Brasil");
+// $playa1->informar();
+// echo "<hr>";
+// $playa2 = new Playa();
+// $playa2->setNombre("Patilla");
+// echo $playa2->getNombre();
+// echo "<hr>";
+// $playa3 = new Playa("Copacabana","Brasil");
+// $playa3->informar();
+// echo "<hr>";
+// echo "<hr>";
+// $turista1 = new Turista("Ana",80,"Premium");
+// $turista1->mostrarDatos();
+
+//STATIC
+// class Dinero{
+//     //atributos
+//     public static $plata = 100;
+//     //métodos
+//     public function mostrarDinero(){
+//         echo self::$plata;
+//     }
+//     public static function saludar(){
+//         echo "<br>Hola estoy saludando 😜";
+//     }
+// }
+// $obj = new Dinero();
+// // $obj->plata = 500;
+// $obj->mostrarDinero();
+// // $obj->saludar();
+
+//relaciones
+// class Dinosaurio
+// {
+//     private $fuerza;
+//     public function __construct($inicio)
+//     {
+//         $this->fuerza = $inicio;
+//     }
+//     public function decirFuerza()
+//     {
+//         return $this->fuerza;
+//     }
+// }
+// class Pelea{
+//     public function calcular($a,$b){
+//         $dino1 = new Dinosaurio($a);
+//         $dino2 = new Dinosaurio($b);
+//         $fuerza_dino1 = $dino1->decirFuerza();
+//         $fuerza_dino2 = $dino2->decirFuerza();
+//         if($fuerza_dino1 > $fuerza_dino2){
+//             return "Ha ganado el dinosaurio 1";
+//         }else{
+//             return "Ha ganado el segundo dinosaurio";
+//         }
+
+//     }
+// }
+
+// $rand1= new Pelea();
+// echo $rand1->calcular(10,5);
+
+
+//HERENCIA
+//SUPERCLASE, CLASE PADRE
+class Padre
+{
+    private $nombre;
+    public function __construct($nombre = null)
+    {
+        $this->nombre = $nombre;
+    }
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+    }
+    public function mostrar(){
+        echo "Hola $this->nombre<br>";
+    }
+}
+
+//subclase, clase hija
+class Hijo extends Padre{
+    private $deporteFavorito;
+    public function setDeporteFavorito($deporteFavorito){
+        $this->deporteFavorito = $deporteFavorito;
+    }
+    public function getDeporteFavorito(){
+        return $this->deporteFavorito;
+    }
+    public function mostrar(){
+        parent::mostrar();
+        echo "<br> soy mostrar del hijo";
+    }
+}
+
+class Nieta extends Hijo{
+
+}
+$p1 = new Padre();
+$p1->setNombre("Juan");
+$p1->mostrar();
 echo "<hr>";
-$playa2 = new Playa();
-$playa2->setNombre("Patilla");
-echo $playa2->getNombre();
+$h1 = new Hijo();
+$h1->setNombre("Fulano");
+$h1->setDeporteFavorito("futbol");
+$h1->mostrar();
+echo " - ".$h1->getDeporteFavorito();
 echo "<hr>";
-$playa3 = new Playa("Copacabana","Brasil");
-$playa3->informar();
-echo "<hr>";
-echo "<hr>";
-$turista1 = new Turista("Ana",80,"Premium");
-$turista1->mostrarDatos();
+$n1 = new Nieta();
+$n1->setNombre("Ana");
+$n1->setDeporteFavorito("basquet");
+$n1->mostrar();
+echo " - ".$n1->getDeporteFavorito();
