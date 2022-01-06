@@ -144,52 +144,102 @@
 
 //HERENCIA
 //SUPERCLASE, CLASE PADRE
-class Padre
-{
-    private $nombre;
-    public function __construct($nombre = null)
-    {
-        $this->nombre = $nombre;
-    }
-    public function setNombre($nombre)
-    {
-        $this->nombre = $nombre;
-    }
-    public function mostrar(){
-        echo "Hola $this->nombre<br>";
-    }
-}
+// class Padre
+// {
+//     private $nombre;
+//     public function __construct($nombre = null)
+//     {
+//         $this->nombre = $nombre;
+//     }
+//     public function setNombre($nombre)
+//     {
+//         $this->nombre = $nombre;
+//     }
+//     public function mostrar(){
+//         echo "Hola $this->nombre<br>";
+//     }
+// }
 
 //subclase, clase hija
-class Hijo extends Padre{
-    private $deporteFavorito;
-    public function setDeporteFavorito($deporteFavorito){
-        $this->deporteFavorito = $deporteFavorito;
-    }
-    public function getDeporteFavorito(){
-        return $this->deporteFavorito;
-    }
-    public function mostrar(){
-        parent::mostrar();
-        echo "<br> soy mostrar del hijo";
-    }
-}
+// class Hijo extends Padre{
+//     private $deporteFavorito;
+//     public function setDeporteFavorito($deporteFavorito){
+//         $this->deporteFavorito = $deporteFavorito;
+//     }
+//     public function getDeporteFavorito(){
+//         return $this->deporteFavorito;
+//     }
+//     public function mostrar(){
+//         parent::mostrar();
+//         echo "<br> soy mostrar del hijo";
+//     }
+// }
 
-class Nieta extends Hijo{
+// class Nieta extends Hijo{
 
-}
-$p1 = new Padre();
-$p1->setNombre("Juan");
-$p1->mostrar();
+// }
+// $p1 = new Padre();
+// $p1->setNombre("Juan");
+// $p1->mostrar();
+// echo "<hr>";
+// $h1 = new Hijo();
+// $h1->setNombre("Fulano");
+// $h1->setDeporteFavorito("futbol");
+// $h1->mostrar();
+// echo " - ".$h1->getDeporteFavorito();
+// echo "<hr>";
+// $n1 = new Nieta();
+// $n1->setNombre("Ana");
+// $n1->setDeporteFavorito("basquet");
+// $n1->mostrar();
+// echo " - ".$n1->getDeporteFavorito();
+//INCLUIR CLASES
+include_once("SeleccionFutbol.php");
+include_once("Futbolista.php");
+include_once("Entrenador.php");
+include_once("Masajista.php");
+//PRACTICA SELECCION DE FUTBOL
+//INSTANCIANDO LA SUPERCLASE
+
+//las clases abstractas no pueden ser instanciadas
+// $sf1 = new SeleccionFutbol();
+// $sf1->setNombre("Fulano");
+// echo $sf1->getNombre();
+
+// echo "<br>";
+// $sf2 =new SeleccionFutbol(2,"Juana","Perez",20);
+// $sf2->informar();
+//INSTANCIANDO LA SUBCLASE FUTBOLISTA
+// $f1 = new Futbolista(2,"Juana","Perez",20);
+// $f1->informar();
+// $f2 = new Futbolista();
+// $f2->setNombre("Juan");
+// echo $f2->getNombre();
+// $f3 = new Futbolista();
+// $f3->setNombre("Emanuel");
+// $f3->jugarPartido();
+// $f3->setDorsal(18);
+// $f3->setDemarcacion("Patio central");
+// $f3->entrenar();
+
+// $f4 = new Futbolista(4,"Maximiliano","Hernandez",70,25,"lateral izquierdo");
+// $f4->informar();
+
+//INSTANCIAR LA CLASE ENTRENADOR
+// $e1 = new Entrenador();
+// $e1->setIdFederacion(999);
+// $e1->planificarEntrenamiento();
+// echo "<br>Id de federación: " . $e1->getIdFederacion();
+// echo "<hr>";
+// $e2 = new Entrenador(2, "María Victoria", "Sanchez", 12, 512);
+// $e2->informar();
+
+//INSTANCIAR A LA CLASE MASAJISTA
+$m1 = new Masajista();
+$m1->setTitulacion("Masajista deportivo");
+$m1->setAniosExperiencia(8);
+$m1->darMasajes();
 echo "<hr>";
-$h1 = new Hijo();
-$h1->setNombre("Fulano");
-$h1->setDeporteFavorito("futbol");
-$h1->mostrar();
-echo " - ".$h1->getDeporteFavorito();
-echo "<hr>";
-$n1 = new Nieta();
-$n1->setNombre("Ana");
-$n1->setDeporteFavorito("basquet");
-$n1->mostrar();
-echo " - ".$n1->getDeporteFavorito();
+$m2 = new Masajista(2, "Miguel", "Paredes", 50, "Masajista Tailandés", 2);
+$m2->informar();
+$m2->darMasajes();
