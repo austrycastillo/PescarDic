@@ -235,11 +235,35 @@ include_once("Masajista.php");
 // $e2->informar();
 
 //INSTANCIAR A LA CLASE MASAJISTA
-$m1 = new Masajista();
-$m1->setTitulacion("Masajista deportivo");
-$m1->setAniosExperiencia(8);
-$m1->darMasajes();
-echo "<hr>";
-$m2 = new Masajista(2, "Miguel", "Paredes", 50, "Masajista Tailandés", 2);
-$m2->informar();
-$m2->darMasajes();
+// $m1 = new Masajista();
+// $m1->setTitulacion("Masajista deportivo");
+// $m1->setAniosExperiencia(8);
+// $m1->darMasajes();
+// echo "<hr>";
+// $m2 = new Masajista(2, "Miguel", "Paredes", 50, "Masajista Tailandés", 2);
+// $m2->informar();
+// $m2->darMasajes();
+
+//*********PRACTICA ANIMAL */
+//incluir las clases
+include_once("Animal.php");
+include_once("Perro.php");
+include_once("Caniche.php");
+//instanciar clase a modo prueba
+// $a1= new Animal(123,"Lulu","3","blabla");
+// echo $a1->informarDatos();
+// $a1->informarHistoria();
+// echo $a1->hablar();
+// $a1->comer();
+//instanciar subclase Perro
+// $a1= new Perro(123,"Lulu","3","blabla",2);
+// echo $a1->informarDatos();
+// $a1->informarHistoria();
+// echo $a1->hablar();
+// $a1->comer();
+//instanciar la subclase Caniche
+$a1= new Caniche(123,"Lulu","3","blabla",2);
+echo $a1->informarDatos();
+$a1->informarHistoria();
+echo $a1->hablar();
+$a1->comer();
