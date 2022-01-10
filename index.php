@@ -262,8 +262,15 @@ include_once("Caniche.php");
 // echo $a1->hablar();
 // $a1->comer();
 //instanciar la subclase Caniche
-$a1= new Caniche(123,"Lulu","3","blabla",2);
-echo $a1->informarDatos();
-$a1->informarHistoria();
-echo $a1->hablar();
-$a1->comer();
+// $a1= new Caniche(123,"Lulu","3","blabla",2);
+// echo $a1->informarDatos();
+// $a1->informarHistoria();
+// echo $a1->hablar();
+// $a1->comer();
+
+//UTILIZANDO NAMESPACE
+require_once("a/Suma.php");
+require_once("b/Suma.php");
+echo a\Suma::sumar(100, 200);
+echo "<br>";
+echo b\Suma::sumar(20, 30, 40);
