@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 3 Js</title>
+    <style>
+        /*practica 1*****************
+        .inputBien{
+            border-color: green;
+        }
+        .inputMal{
+            border-color: red;
+        }
+        #inputBien{
+            border-color: green;
+        }
+        #inputMal{
+            border-color: red;
+        }*/
+        /*practica 2**************
+        */
+        body{
+            background-color: lightblue;
+        }
+        label{
+            display: block;
+            font-weight: bold;
+            padding: 10px;
+        }
+        input{
+            width: 35%;
+            border:3px solid transparent;
+            border-radius: 3px;
+            height: 40px;
+            padding-left: 20px;
+        }
+        #enviar{
+            width: 50%;
+            background-color: mediumblue;
+            color: white;
+            cursor: pointer;
+        }
+        .s-nombre,.s-correo{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!--practica 1-->
+    <!-- <a href="https://www.google.com">Google</a> -
+    <a href="https://www.youtube.com/index">Youtube</a> -
+    <a href="https://alumni.education/">Alumni</a> -
+    <a href="https://www.instagram.com/">Instagram</a> -
+    <hr>
+    <form action="algo.php" name="form">
+        Nombre: <input type="text" name="nombre"><span></span>
+        Apellido: <input type="text" name="apellido">
+        Edad: <input type="text" name="edad"><br>
+        <input type="submit">
+
+    </form> -->
+    <!--practica 2-->
+    <form action="enviar.php" id="form" method="post">
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre" placeholder="Escribe nombre de usuario">
+        <span id="s-nombre" class="s-nombre">El usuario solo puede contener de 4 a 10 caracteres y solo letras</span>
+
+        <label for="correo">Correo electrónico</label>
+        <input type="text" name="correo" id="correo" placeholder="Escribe el email con el formato correo@web.com">
+        <span id="s-correo" class="s-correo">El correo debe tener el formato correo@web.com</span>
+
+        <label for="enviar"></label>
+        <input type="submit" value="Enviar información" id="enviar">
+        <span class="s-submit" id="s-submit"></span>
+    </form>
+    <script src="scripts/clase3.js"></script>
+</body>
+
+</html>
