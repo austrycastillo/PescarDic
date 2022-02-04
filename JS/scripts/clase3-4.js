@@ -76,16 +76,84 @@ var form = document.getElementById("form");
 var inputs = document.querySelectorAll("input");
 var exp = {
     nombre: /^[a-zA-Z\s]{3,10}$/,
-    correo: /^[-\w.%+]{6,64}@(?:[A-Z0-9-]{6,63}\.){6,125}[A-Z]{2,63}$/i
+    correo: /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i
 }
 var campos = {
     nombre: false,
     correo: false
 }
-function validar(){
-    //aqui quedamos
+var nombre = document.querySelector("#nombre");
+var correo = document.querySelector("#correo");
+var s_nombre = document.querySelector("#s-nombre");
+var s_correo = document.querySelector("#s-correo");
+var s_submit = document.querySelector("#s-submit");
+function validar(e) {
+    // console.log(e);
+    // console.log(e.target.value);
+    // console.log(e.target.name);
+    switch (e.target.name) {
+        case "nombre":
+            // console.log(e.target.value);
+            // console.log(exp.nombre);
+            if (exp.nombre.test(e.target.value)) {
+                // console.log("correcto");
+                nombre.classList.add("input_correcto");
+                nombre.classList.remove("input_incorrecto");
+                s_nombre.classList.add("s-nombre");
+                s_nombre.classList.remove("s-nombre-error");
+                // console.log(campos.nombre);
+                campos.nombre = true;
+
+            } else {
+                // console.log("incorrecto");
+                nombre.classList.add("input_incorrecto");
+                nombre.classList.remove("input_correcto");
+                s_nombre.classList.add("s-nombre-error");
+                s_nombre.classList.remove("s-nombre");
+                campos.nombre = false;
+            }
+            break;
+        case "correo":
+            // console.log(e.target.value);
+            // console.log(exp.nombre);
+            if (exp.correo.test(e.target.value)) {
+                // console.log("correcto");
+                correo.classList.add("input_correcto");
+                correo.classList.remove("input_incorrecto");
+                s_correo.classList.add("s-correo");
+                s_correo.classList.remove("s-correo-error");
+                // console.log(campos.correo);
+                campos.correo = true;
+
+            } else {
+                // console.log("incorrecto");
+                correo.classList.add("input_incorrecto");
+                correo.classList.remove("input_correcto");
+                s_correo.classList.add("s-correo-error");
+                s_correo.classList.remove("s-correo");
+                campos.correo = false;
+            }
+            break;
+    }
 }
 inputs.forEach((item) => {
-    // console.log(item);
+    //console.log(item);
     item.addEventListener('keyup', validar);
 })
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    // console.log(campos.nombre);
+    // console.log(campos.correo);
+    if(campos.nombre && campos.correo){
+        // console.log("enviado");
+        s_submit.classList.add("s-submit-enviado");
+        s_submit.classList.remove("s-submit-error");
+        s_submit.innerHTML = "Enviado correctamente 😀";
+        // console.log(e.target.submit());
+    }else{
+        // console.log("no enviado, errores");
+        s_submit.classList.add("s-submit-error");
+        s_submit.classList.remove("s-submit-enviado");
+        s_submit.innerHTML = "No enviado, errores 🤐";
+    }
+});

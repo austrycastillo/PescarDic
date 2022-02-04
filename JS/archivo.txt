@@ -1,0 +1,6 @@
+API Rest es el conjunto de buenas prácticas utilizadas en las requisiciones HTTP realizadas por una API en una aplicación web. Se trata de comprender cómo usar las requisiciones HTTP dentro de directrices específicas, pues ellas son responsables de mapear, de manera consistente, los elementos de una aplicación web.Las principales solicitudes son:
+
+POST: crea datos en el servidor;
+GET: lectura de datos en el host;
+DELETE: borra la información;
+PUT: registro de actualizaciones.
