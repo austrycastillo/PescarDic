@@ -81,11 +81,11 @@ btn.addEventListener("click", () => {
     let xhr = new XMLHttpRequest();//paso 1
     xhr.open("get", "plantilla.html");//paso 2
     xhr.addEventListener("load", () => {//paso 3
-        if (xhr.status == 200) {
+        if (xhr.status == 200) {//paso opcional
             let div = document.createElement("div");
             div.innerHTML = xhr.response;
             document.body.appendChild(div);
         }
     });
-    xhr.send();
+    xhr.send();//paso 4
 });
