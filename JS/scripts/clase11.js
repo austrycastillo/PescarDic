@@ -43,8 +43,9 @@ const listarTareas = () => {
         for (const item of datos) {
             // console.log(item.id)
             // console.log(item.value)
+            //console.log(item.producto);
             lista.innerHTML += `
-            <li id="${item.id}"><input type="text" class="input" value="${item.value}"><button class="boton-eliminar">X</button></li>`
+            <li id="${item.id}"><input type="text" class="input" value="${item.producto}"><button class="boton-eliminar">X</button></li>`
         }
     }
 }
@@ -65,18 +66,56 @@ lista.addEventListener("keypress", (e) => {
     // console.log(e.path[0]);
     // console.log(e.path[1].id);
     // console.log(e.path[0].value);
-    editar(e.path[1].id,e.path[0].value);
+    if (e.keyCode == 13) {
+        editar(e.path[1].id, e.path[0].value);
+    }
+
 });
-const editar = (idTarea,producto)=>{
-    let newTarea ={
-        id:idTarea,
-        producto:producto
+const editar = (idTarea, producto) => {
+    let newTarea = {
+        id: idTarea,
+        producto: producto
     }
     let datos = getArregloTareas();
     let newArreglo = [];
-    if(datos!=null){
-        for(const item of datos){
-          console.log(idTarea)
+    if (datos != null) {
+        for (const item of datos) {
+            //console.log(item.id);
+            if (item.id == idTarea) {
+                newArreglo.push(newTarea);
+            } else {
+                newArreglo.push(item);
+            }
         }
+        arregloTareas = newArreglo;
+        //console.log(arregloTareas);
+        setArregloTareas();
     }
 }
+lista.addEventListener("click", (e) => {
+    // console.log(e.path);
+    // console.log(e.path[0].type);
+    // console.log(e.path[1].id);
+    if (e.path[0].type == "submit") {
+        eliminar(e.path[1].id);
+    }
+
+});
+
+const eliminar = (id) => {
+    let datos = getArregloTareas();
+    let newArreglo = [];
+    if (datos != null) {
+        for (const item of datos) {
+            // console.log(item.id);
+            if (item.id != id) {
+                newArreglo.push(item);
+            }
+        }
+    }
+    arregloTareas = newArreglo;
+    setArregloTareas();
+    //localStorage.removeItem("")
+}
+
+listarTareas();
